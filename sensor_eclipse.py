@@ -6,11 +6,11 @@ import Adafruit_DHT
 from datetime import datetime
 
 #Servidor Local
-MQTT_ADDRESS = '192.168.50.106'
-MQTT_PORT = 8883
+#MQTT_ADDRESS = '192.168.50.106'
+#MQTT_PORT = 8883
 # descomente esta linha para usar o servidor da Fundação Eclipse.
-#MQTT_ADDRESS = 'iot.eclipse.org'
-#MQTT_PORT = 1883
+MQTT_ADDRESS = 'iot.eclipse.org'
+MQTT_PORT = 1883
 MQTT_TIMEOUT = 60
 UNIDADE = 'MG'
 SETOR = 'TI'
@@ -20,7 +20,7 @@ SENSOR = 'RP01'
 def send_message():
     client = mqtt.Client()
     # descomente esta linha caso seu servidor possua autenticação.
-    client.username_pw_set('ticimed', 'cimed@2017')
+    #client.username_pw_set('ticimed', 'cimed@2017')
     client.connect(MQTT_ADDRESS, MQTT_PORT, MQTT_TIMEOUT)
 
     #faz a leitura do sensor
