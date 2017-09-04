@@ -10,7 +10,7 @@ MQTT_ADDRESS = '192.168.56.101'
 # MQTT_ADDRESS = 'iot.eclipse.org'
 MQTT_PORT = 8883
 # descomente esta linha caso seu servidor possua autenticação.
-MQTT_AUTH = Auth('ticimed', 'cimed@2017')
+#MQTT_AUTH = Auth('ticimed', 'cimed@2017')
 MQTT_TIMEOUT = 60
 UNIDADE = 'MG'
 SETOR = 'TI'
@@ -20,7 +20,7 @@ SENSOR = 'RP01'
 def send_message():
     client = mqtt.Client()
     # descomente esta linha caso seu servidor possua autenticação.
-    client.username_pw_set(MQTT_AUTH.user, MQTT_AUTH.pwd)
+    client.username_pw_set('ticimed', 'cimed@2017')
     client.connect(MQTT_ADDRESS, MQTT_PORT, MQTT_TIMEOUT)
 
     #faz a leitura do sensor
