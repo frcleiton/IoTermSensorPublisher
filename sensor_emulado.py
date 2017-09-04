@@ -2,7 +2,7 @@
 import paho.mqtt.client as mqtt
 import json
 import random
-import Adafruit_DHT
+#import Adafruit_DHT
 from datetime import datetime
 
 #Servidor Local
@@ -34,7 +34,9 @@ def read_sensor():
     client.connect(MQTT_ADDRESS, MQTT_PORT, MQTT_TIMEOUT)
 
     #faz a leitura do sensor
-    humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, 17)
+    #humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, 17)
+    temperature = random.randint(-10, 40)
+    humidity = random.randint(0,100)
 
     publish_value(temperature, "MG/TI/RP01/Temperatura")
     publish_value(humidity, "MG/TI/RP01/Umidade")
