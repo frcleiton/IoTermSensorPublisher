@@ -2,6 +2,7 @@
 import paho.mqtt.client as mqtt
 import json
 import random
+import Adafruit_DHT
 from datetime import datetime
 
 MQTT_ADDRESS = '192.168.56.101'
@@ -21,8 +22,9 @@ def send_message():
     # descomente esta linha caso seu servidor possua autenticação.
     client.username_pw_set(MQTT_AUTH.user, MQTT_AUTH.pwd)
     client.connect(MQTT_ADDRESS, MQTT_PORT, MQTT_TIMEOUT)
-    humidity = random.randint(1,100)
-    temperature = random.randint(0,40)
+
+    #faz a leitura do sensor
+    humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, 17)
     time = str( datetime.now() )
     send_msg = {
         'datahora': time,
