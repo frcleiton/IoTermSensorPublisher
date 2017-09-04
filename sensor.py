@@ -32,7 +32,9 @@ def send_message():
 		'umidade': humidity
     }
 
-    result, mid = client.publish(UNIDADE+'/'+SETOR+'/'+SENSOR, payload=json.dumps(send_msg), qos=2)
+    canal = UNIDADE+'/'+SETOR+'/'+SENSOR
+    print canal
+    result, mid = client.publish(canal, payload=json.dumps(send_msg), qos=2)
     print('Mensagem enviada ao canal: %d' % mid)
 
 if __name__ == '__main__':
