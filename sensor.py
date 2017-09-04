@@ -5,12 +5,10 @@ import random
 import Adafruit_DHT
 from datetime import datetime
 
-MQTT_ADDRESS = '192.168.56.101'
+MQTT_ADDRESS = '192.168.50.106'
 # descomente esta linha para usar o servidor da Fundação Eclipse.
 # MQTT_ADDRESS = 'iot.eclipse.org'
 MQTT_PORT = 8883
-# descomente esta linha caso seu servidor possua autenticação.
-#MQTT_AUTH = Auth('ticimed', 'cimed@2017')
 MQTT_TIMEOUT = 60
 UNIDADE = 'MG'
 SETOR = 'TI'
