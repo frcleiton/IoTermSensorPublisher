@@ -6,8 +6,8 @@ import random
 from datetime import datetime
 
 #Servidor Local
-MQTT_ADDRESS = 'ubuntuIoTserver'
-MQTT_PORT = 8883
+MQTT_ADDRESS = 'iot.eclipse.org'
+MQTT_PORT = 1883
 MQTT_TIMEOUT = 60
 
 client = mqtt.Client()
@@ -30,7 +30,7 @@ def publish_value(value, topic):
 
 def read_sensor():
     # descomente esta linha caso seu servidor possua autenticação.
-    client.username_pw_set('ticimed', 'cimed@2017')
+    #client.username_pw_set('ticimed', 'cimed@2017')
     client.connect(MQTT_ADDRESS, MQTT_PORT, MQTT_TIMEOUT)
 
     #faz a leitura do sensor
