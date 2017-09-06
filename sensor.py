@@ -32,7 +32,7 @@ def publish_value(_temperature, _humidity):
         send_msg = {'t': time,
                     'mu': 'RH',
                     'value': _humidity}
-        result, mid = client.publish(temp_topic, payload=json.dumps(send_msg), qos=1, retain=True )
+        result, mid = client.publish(humi_topic, payload=json.dumps(send_msg), qos=1, retain=True )
         print "%s - %s" % (humi_topic, send_msg)
 
 
