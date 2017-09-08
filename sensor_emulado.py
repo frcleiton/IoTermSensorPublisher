@@ -32,7 +32,7 @@ def publish_value(_temperature, _humidity):
         send_msg = {'t': time,
                     'mu': 'RH',
                     'value': _humidity}
-        result, mid = client.publish(temp_topic, payload=json.dumps(send_msg), qos=1, retain=True )
+        result, mid = client.publish(humi_topic, payload=json.dumps(send_msg), qos=1, retain=True )
         print "%s - %s" % (humi_topic, send_msg)
 
 
@@ -43,7 +43,7 @@ def read_sensor():
 
     #faz a leitura do sensor
     #humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, 17)
-    temperature = round(random.randint(-10, 40)+random.random(),2)
+    temperature = round(random.randint(0, 40)+random.random(),2)
     humidity = round(random.randint(0, 100)+random.random(),2)
 
     publish_value(temperature, humidity)
