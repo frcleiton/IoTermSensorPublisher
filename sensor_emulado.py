@@ -6,7 +6,7 @@ import random
 from datetime import datetime
 
 #Servidor Local
-MQTT_ADDRESS = '192.168.22.73'
+MQTT_ADDRESS = 'localhost'
 MQTT_PORT = 8883
 MQTT_TIMEOUT = 60
 SENSOR_LOCATION = 'MG'
