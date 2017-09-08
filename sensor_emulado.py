@@ -2,6 +2,7 @@
 import paho.mqtt.client as mqtt
 import json
 import random
+from bson import json_util
 #import Adafruit_DHT
 from datetime import datetime
 
@@ -17,19 +18,19 @@ client = mqtt.Client()
 
 def publish_value(_temperature, _humidity):
 
-    time = str( datetime.now() )
+    str_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     temp_topic = SENSOR_LOCATION+'/'+SENSOR_ROOM+'/'+SENSOR_ID+'/temperature'
     humi_topic = SENSOR_LOCATION+'/'+SENSOR_ROOM+'/'+SENSOR_ID+'/humidity'
 
     if _temperature is not None:
-        send_msg = {'t': time,
+        send_msg = {'t': str_time,
                     'mu': 'C',
                     'value': _temperature}
         result, mid = client.publish(temp_topic, payload=json.dumps(send_msg), qos=1, retain=True )
         print "%s - %s" % (temp_topic, send_msg)
 
     if _humidity is not None:
-        send_msg = {'t': time,
+        send_msg = {'t': str_time,
                     'mu': 'RH',
                     'value': _humidity}
         result, mid = client.publish(humi_topic, payload=json.dumps(send_msg), qos=1, retain=True )
